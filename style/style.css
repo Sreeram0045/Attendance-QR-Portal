@@ -556,24 +556,16 @@ video {
   --tw-contain-style:  ;
 }
 
-.ml-2{
-  margin-left: 0.5rem;
-}
-
 .mr-2{
   margin-right: 0.5rem;
 }
 
+.inline-block{
+  display: inline-block;
+}
+
 .inline{
   display: inline;
-}
-
-.h-2{
-  height: 0.5rem;
-}
-
-.h-12{
-  height: 3rem;
 }
 
 .h-10{
@@ -582,14 +574,6 @@ video {
 
 .h-9{
   height: 2.25rem;
-}
-
-.w-1{
-  width: 0.25rem;
-}
-
-.w-10{
-  width: 2.5rem;
 }
 
 .w-8{

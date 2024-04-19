@@ -11,18 +11,18 @@
 <body class="scroll-smooth font-Poppins">
     <main class="text-lg border">
         <div class="border">
-            <img src="./assets/icons/person_icon.svg" alt="person" class="opacity-50 inline w-8 h-10 mr-2">
+            <img src="./assets/icons/person_icon.svg" alt="person" class="opacity-50 inline-block w-8 h-10 mr-2">
             <input type="text" name="f_name" id="full_name" placeholder="Enter Your Full Name" class=" align-middle">
         </div>
         <div class="border">
-            <input type="number" name="u_age" id="u_age" placeholder="Age">
+            <input type="text" name="u_age" id="u_age" placeholder="Age">
         </div>
         <div class="border">
             <label>DOB:</label>
             <input type="date" name="u_dob" id="u_dob">
         </div>
         <div class="border">
-            <img src="./assets/icons/mail_icon.svg" alt="mail" class="opacity-50 inline w-8 h-9 mr-2">
+            <img src="./assets/icons/mail_icon.svg" alt="mail" class="opacity-50 inline-block w-8 h-9 mr-2">
             <input type="email" name="u_mail" id="u_mail" placeholder="E-mail Id" class="align-middle">
         </div>
         <div class="border">
@@ -38,7 +38,9 @@
             <input type="password" name="u_password" id="u_password" placeholder="Password">
         </div>
         <div class="border">
-            <label>Upload your Photo:</label>
+            <label>Upload your Photo:
+                <img src="./assets/icons/image_icon.svg" alt="image" class="opacity-50 inline-block w-8 h-9 mr-2">
+            </label>
             <input type="file" name="u_img" id="u_img">
         </div>
     </main>
