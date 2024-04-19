@@ -26,16 +26,20 @@
             <input type="email" name="u_mail" id="u_mail" placeholder="E-mail Id" class="align-middle">
         </div>
         <div class="border">
-            <input type="number" name="u_num" id="u_num" placeholder="Phone Number">
+            <img src="./assets/icons/phone.svg" alt="phone" class="opacity-50 inline-block w-8 h-9 mr-2">
+            <input type="number" name="u_num" id="u_num" placeholder="Phone Number" class="align-middle">
         </div>
         <div class="border">
-            <input type="text" name="u_org" id="u_org" placeholder="Organisation">
+            <img src="./assets/icons/institution.png" alt="institution" class=" opacity-50 inline-block mr-2 h-8 w-7">
+            <input type="text" name="u_org" id="u_org" placeholder="Organisation" class="align-middle">
         </div>
         <div class="border">
-            <input type="text" name="u_username" id="u_username" placeholder="Username">
+            <img src="./assets/icons/username.svg" alt="person" class="opacity-50 inline-block w-8 h-10 mr-2">
+            <input type="text" name="u_username" id="u_username" placeholder="Username" class="align-middle">
         </div>
         <div class="border">
-            <input type="password" name="u_password" id="u_password" placeholder="Password">
+            <img src="./assets/icons/password.svg" alt="person" class="opacity-50 inline-block w-8 h-10 mr-2">
+            <input type="password" name="u_password" id="u_password" placeholder="Password" class="align-middle">
         </div>
         <div class="border">
             <label>Upload your Photo:

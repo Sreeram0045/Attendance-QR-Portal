@@ -564,20 +564,32 @@ video {
   display: inline-block;
 }
 
-.inline{
-  display: inline;
-}
-
 .h-10{
   height: 2.5rem;
+}
+
+.h-7{
+  height: 1.75rem;
 }
 
 .h-9{
   height: 2.25rem;
 }
 
+.h-8{
+  height: 2rem;
+}
+
+.w-6{
+  width: 1.5rem;
+}
+
 .w-8{
   width: 2rem;
+}
+
+.w-7{
+  width: 1.75rem;
 }
 
 .scroll-smooth{
