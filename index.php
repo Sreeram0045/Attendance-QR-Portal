@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 
-<body class="scroll-smooth font-Poppins *:outline-none  focus-within:outline-none ">
-    <div class="lg:w-screen lg:h-screen lg:flex items-center justify-center">
-        <form action="" method="post" class="lg:flex lg:flex-row lg:gap-5 bg-[#FBF9E4] lg:px-20 lg:py-16 lg:rounded-3xl">
+<body class="scroll-smooth font-Poppins">
+    <div class="w-screen h-screen md:flex items-center justify-center md:py-20 md:my-12 sm:max-w-full sm:max-h-full">
+        <main class="bg-[#FBF9E4] md:rounded-3xl md:flex items-center">
             <div class="w-96 h-96">
-                <img src="./assets/logo/logo.png" alt="logo" class="inline-block max-w-full max-h-full lg:rounded-full">
+                <img src="./assets/logo/logo.png" alt="logo" class="inline-block max-w-full max-h-full md:rounded-full">
             </div>
-            <main class="text-lg">
+            <form action="" method="post" class="md:px-20 md:py-16 md:rounded-3xl text-md">
                 <div class="py-1">
                     <img src="./assets/icons/person_icon.svg" alt="person" class="opacity-50 inline-block w-8 h-10 mr-2">
                     <input type="text" name="f_name" id="full_name" placeholder="Enter Your Full Name" class=" align-middle bg-transparent placeholder:text-[#547781]">
@@ -54,10 +54,10 @@
                     <input type="file" name="u_img" id="u_img" class="bg-transparent placeholder:text-[#547781]">
                 </div>
                 <div class="py-2">
-                    <input type="submit" class="w-[7rem] ml-4 bg-[#0b64f4] text-white px-4 py-2 rounded-lg hover:bg-[#1d4fd7] active:bg-[bg-[#1d4fd7]] hover:translate-y-[-4px] active:translate-y-[-5px] hover:scale-105 active:scale-110 transition-all ease-in-out delay-50 tracking-[2px]" value="SEARCH" name="submit">
+                    <input type="submit" class="w-[7rem] ml-4 bg-[#0b64f4] text-white px-4 py-2 rounded-md hover:bg-[#1d4fd7] active:bg-[bg-[#1d4fd7]] hover:scale-105   active:scale-110 transition-all ease-in-out delay-50 tracking-[2px]" value="Sign Up" name="submit">
                 </div>
-            </main>
-        </form>
+            </form>
+        </main>
     </div>
 </body>
 
