@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-In</title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body class="scroll-smooth font-Poppins">
+    <div class="flex flex-col md:flex-row gap-4 md:gap-10 items-center justify-center h-screen px-2 md:px-0 dark bg-[#FBF9E4]">
+        <div class="w-full max-w-md md:w-80 md:h-80">
+            <img src="./assets/logo/logo.png" alt="logo" class="max-w-full max-h-full">
+        </div>
+        <div class="w-full max-w-md bg-gray-800 rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-gray-200 mb-4">Login</h2>
+            <form class="flex flex-col">
+                <input placeholder="Email address" class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" type="email">
+                <input placeholder="Password" class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" type="password">
+                <div class="flex items-center justify-between flex-wrap">
+                    <label class="text-sm text-gray-200 cursor-pointer" for="remember-me">
+                        <input class="mr-2" id="remember-me" type="checkbox">
+                        Remember me
+                    </label>
+                    <a class="text-sm text-blue-500 hover:underline mb-0.5" href="#">Forgot password?</a>
+                    <p class="text-white mt-4"> Don't have an account? <a class="text-sm text-blue-500 -200 hover:underline mt-4" href="#">Signup</a></p>
+                </div>
+                <button class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150" type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
