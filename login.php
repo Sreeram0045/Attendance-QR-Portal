@@ -9,7 +9,7 @@
 </head>
 
 <body class="scroll-smooth font-Poppins">
-    <div class="flex flex-col md:flex-row items-center justify-center h-screen dark">
+    <div class="flex flex-col md:flex-row items-center justify-center h-screen dark bg-[#FBF9E4] md:bg-transparent">
         <main class="bg-[#FBF9E4] rounded-2xl md:rounded-3xl md:flex items-center md:p-20 dark:bg-[#e0d880]">
             <div class="w-full max-w-md md:w-80 md:h-80">
                 <img src="./assets/logo/logo1024.png" alt="logo" class="max-w-full max-h-full">
@@ -25,7 +25,7 @@
                             Remember me
                         </label>
                         <a class="text-sm text-blue-500 hover:underline mb-0.5" href="#">Forgot password?</a>
-                        <p class="text-white mt-4"> Don't have an account? <a class="text-sm text-blue-500 -200 hover:underline mt-4" href="#">Signup</a></p>
+                        <p class="text-white mt-4"> Don't have an account? <a class="text-sm text-blue-500 -200 hover:underline mt-4" href="index.php">Signup</a></p>
                     </div>
                     <button class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150" type="submit">Login</button>
                 </form>

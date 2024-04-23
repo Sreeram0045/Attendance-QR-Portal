@@ -9,7 +9,7 @@
 </head>
 
 <body class="scroll-smooth font-Poppins">
-    <div class="w-screen h-screen max-w-full max-h-full flex flex-col md:flex-row justify-center items-center">
+    <div class="w-screen h-screen max-w-full max-h-full flex flex-col md:flex-row justify-center items-center bg-[#FBF9E4] md:bg-transparent">
         <main class="bg-[#FBF9E4] rounded-2xl md:rounded-3xl md:flex items-center">
             <div class="w-96 h-96">
                 <img src="./assets/logo/logo1024.png" alt="logo" class="inline-block max-w-full max-h-full md:rounded-full">

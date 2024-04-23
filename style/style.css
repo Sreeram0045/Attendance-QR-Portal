@@ -990,6 +990,14 @@ video {
     border-radius: 9999px;
   }
 
+  .md\:bg-transparent{
+    background-color: transparent;
+  }
+
+  .md\:bg-none{
+    background-image: none;
+  }
+
   .md\:p-0{
     padding: 0px;
   }
