@@ -1,4 +1,4 @@
-package main
+package connection
 
 import (
 	"database/sql"
@@ -42,7 +42,7 @@ func envLoadFunction() (config *envVariables) {
 	return
 }
 
-func main() {
+func ConnectToDB() {
 	// Load the environment variables from the .env file
 	envVarStruct = envLoadFunction()
 
