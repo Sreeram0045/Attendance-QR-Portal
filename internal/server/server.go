@@ -7,7 +7,7 @@ import (
 )
 
 func ServerStart() {
-	http.Handle("/", http.FileServer(http.Dir("../")))
+	http.Handle("/", http.FileServer(http.Dir("../../pages/")))
 	err := http.ListenAndServe(":3000", nil)
 	if err != nil {
 		log.Fatal(err)
