@@ -25,37 +25,41 @@ type envVariables struct {
 var envVarStruct *envVariables
 
 func checkingPath() string {
-
+	// created two variables for the comparison of the path
 	comparison := "/Attendance-QR-Portal"
 	var dir string = "Attendance-QR-Portal"
+	// created a varibale to get the current working directory along with the error
 	rootDir, err := os.Getwd()
+	// error checking
 	if err != nil {
 		fmt.Println("Error getting current working directory:", err)
 		return ""
 	}
-
+	// splits the working directory into slices after each '/' into slices which stores it as an array of strings
 	slices := strings.SplitAfter(rootDir, "/")
-
+	// finds the last slice and compares it with the variable if true returns the working directory
 	if len(slices) > 0 {
 		if dir == slices[len(slices)-1] {
 			return rootDir
 		}
 	}
-
+	// checks if the working directory contains the variable
 	if strings.Contains(rootDir, comparison) {
+		// splits the current working directory after and before the variable
 		slice := strings.SplitAfter(rootDir, comparison)
-		fmt.Printf("%s,%s\n", slice[0], slice[1])
+		// fmt.Printf("%s,%s\n", slice[0], slice[1])
+		// returns the directory containing the .env variable
 		return slice[0]
 	}
+	// if nothing seems true it returns "" an empty string which will result in failure
 	return ""
 }
 
 // envLoadFunction reads the .env file and returns its contents to the pointer
 func envLoadFunction() (config *envVariables) {
+	// Specify the path of the .env file
 	path := checkingPath()
 	viper.AddConfigPath(path)
-	// Specify the path of the .env file
-	// viper.AddConfigPath("../../")
 	// Specify the name of the .env file
 	viper.SetConfigName("db_connection")
 	// Specify the type of the configuration file (env for environment variables)
