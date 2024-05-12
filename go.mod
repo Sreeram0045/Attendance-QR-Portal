@@ -1,4 +1,4 @@
-module backend
+module github.com/Sreeram0045/backend
 
 go 1.22.2
 
