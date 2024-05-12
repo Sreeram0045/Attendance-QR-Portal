@@ -24,7 +24,7 @@ type envVariables struct {
 // envVarStruct is a pointer variable that points to the user-defined struct
 var envVarStruct *envVariables
 
-func checkingPath() string {
+func checkingPathForEnvFile() string {
 	// created two variables for the comparison of the path
 	comparison := "/Attendance-QR-Portal"
 	var dir string = "Attendance-QR-Portal"
@@ -58,7 +58,7 @@ func checkingPath() string {
 // envLoadFunction reads the .env file and returns its contents to the pointer
 func envLoadFunction() (config *envVariables) {
 	// Specify the path of the .env file
-	path := checkingPath()
+	path := checkingPathForEnvFile()
 	viper.AddConfigPath(path)
 	// Specify the name of the .env file
 	viper.SetConfigName("db_connection")
