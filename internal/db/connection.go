@@ -4,6 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"os"
+	"strings"
 
 	"github.com/go-sql-driver/mysql"
 	"github.com/spf13/viper"
@@ -22,10 +24,38 @@ type envVariables struct {
 // envVarStruct is a pointer variable that points to the user-defined struct
 var envVarStruct *envVariables
 
+func checkingPath() string {
+
+	comparison := "/Attendance-QR-Portal"
+	var dir string = "Attendance-QR-Portal"
+	rootDir, err := os.Getwd()
+	if err != nil {
+		fmt.Println("Error getting current working directory:", err)
+		return ""
+	}
+
+	slices := strings.SplitAfter(rootDir, "/")
+
+	if len(slices) > 0 {
+		if dir == slices[len(slices)-1] {
+			return rootDir
+		}
+	}
+
+	if strings.Contains(rootDir, comparison) {
+		slice := strings.SplitAfter(rootDir, comparison)
+		fmt.Printf("%s,%s\n", slice[0], slice[1])
+		return slice[0]
+	}
+	return ""
+}
+
 // envLoadFunction reads the .env file and returns its contents to the pointer
 func envLoadFunction() (config *envVariables) {
+	path := checkingPath()
+	viper.AddConfigPath(path)
 	// Specify the path of the .env file
-	viper.AddConfigPath("../")
+	// viper.AddConfigPath("../../")
 	// Specify the name of the .env file
 	viper.SetConfigName("db_connection")
 	// Specify the type of the configuration file (env for environment variables)
