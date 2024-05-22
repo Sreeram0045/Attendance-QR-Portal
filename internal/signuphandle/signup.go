@@ -2,7 +2,6 @@ package SignUpHandle
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"regexp"
 	"strings"
@@ -81,34 +80,40 @@ func validateOrganisation(org []string) bool {
 }
 
 func UserSignUp(w http.ResponseWriter, r *http.Request) {
+	// Ensure the request method is POST. This is necessary to handle form submissions properly
+	if r.Method != http.MethodPost {
+		http.Error(w, "Invalid request method", http.StatusMethodNotAllowed)
+		return
+	}
+
+	// Parse the form data from the request
 	if err := r.ParseForm(); err != nil {
 		http.Error(w, "ParseForm() error", http.StatusInternalServerError)
 		return
 	}
-	if r.Method == "POST" {
-		if validateName(r.Form["f_name"]) &&
-			validateAge(r.Form["u_age"]) &&
-			validateEmail(r.Form["u_mail"]) &&
-			validatePhoneNumber(r.Form["u_num"]) &&
-			validateUserName(r.Form["u_username"]) &&
-			validatePassword(r.Form["u_password"]) &&
-			validateOrganisation(r.Form["u_org"]) {
-			full_name := r.Form["f_name"]
-			user_age := r.Form["u_age"]
-			user_dob := r.Form["u_dob"]
-			user_e_mail := r.Form["u_mail"]
-			user_ph_num := r.Form["u_num"]
-			user_org := r.Form["u_org"]
-			user_username := r.Form["u_username"]
-			user_password := r.Form["u_password"]
-			fmt.Println(full_name, "\n", user_age, "\n", user_dob, "\n", user_e_mail, "\n", user_ph_num, "\n", user_org, "\n", user_username, "\n", user_password)
-		} else {
-			// path := checkingPathForServer() + "index.html"
-			// http.ServeFile(w, r, path)
-			http.Redirect(w, r, "/", http.StatusFound)
-			fmt.Println("Can't Get the data")
-		}
+
+	// Validate each field using the corresponding validation function
+	if validateName(r.Form["f_name"]) &&
+		validateAge(r.Form["u_age"]) &&
+		validateEmail(r.Form["u_mail"]) &&
+		validatePhoneNumber(r.Form["u_num"]) &&
+		validateUserName(r.Form["u_username"]) &&
+		validatePassword(r.Form["u_password"]) &&
+		validateOrganisation(r.Form["u_org"]) {
+
+		// If all validations pass, extract form data and print it
+		full_name := r.Form["f_name"]
+		user_age := r.Form["u_age"]
+		user_dob := r.Form["u_dob"]
+		user_e_mail := r.Form["u_mail"]
+		user_ph_num := r.Form["u_num"]
+		user_org := r.Form["u_org"]
+		user_username := r.Form["u_username"]
+		user_password := r.Form["u_password"]
+		fmt.Println(full_name, "\n", user_age, "\n", user_dob, "\n", user_e_mail, "\n", user_ph_num, "\n", user_org, "\n", user_username, "\n", user_password)
 	} else {
-		log.Fatal("Invalid Submission")
+		// If any validation fails, redirect to the home page
+		http.Redirect(w, r, "/", http.StatusFound)
+		fmt.Println("Can't Get the data")
 	}
 }
