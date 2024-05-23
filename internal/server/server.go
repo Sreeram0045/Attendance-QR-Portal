@@ -2,11 +2,13 @@ package ServerOpen
 
 import (
 	"fmt"
-	SignUpHandle "github.com/Sreeram0045/backend/internal/signuphandle"
 	"log"
 	"net/http"
 	"os"
 	"strings"
+
+	LogInHandle "github.com/Sreeram0045/backend/internal/loginhandle"
+	SignUpHandle "github.com/Sreeram0045/backend/internal/signuphandle"
 )
 
 func checkingPathForServer() string {
@@ -35,6 +37,7 @@ func ServerStart() {
 	path := checkingPathForServer()
 	http.Handle("/", http.FileServer(http.Dir(path)))
 	http.HandleFunc("/sign-up", SignUpHandle.UserSignUp)
+	http.HandleFunc("/log-in", LogInHandle.UserLogIn)
 	err := http.ListenAndServe(":3000", nil)
 	if err != nil {
 		log.Fatal(err)
