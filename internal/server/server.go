@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strings"
 
 	LogInHandle "github.com/Sreeram0045/backend/internal/loginhandle"
@@ -33,12 +34,48 @@ func checkingPathForServer() string {
 	return ""
 }
 
+func LoginPageHandler(w http.ResponseWriter, r *http.Request) {
+	path := checkingPathForServer()
+	http.ServeFile(w, r, path+"login.html")
+}
+
+// Custom handler for assets
+func assetsHandler(w http.ResponseWriter, r *http.Request) {
+	assetPath := checkingPathForServer() + "assets"
+	requestedPath := filepath.Join(assetPath, r.URL.Path[len("/assets/"):])
+
+	// If the request is for the /assets directory itself, return an error
+	if r.URL.Path == "/assets" || r.URL.Path == "/assets/" {
+		http.Error(w, "Access to this resource is restricted", http.StatusForbidden)
+		return
+	}
+
+	// If requestedPath is a directory, return an error
+	fileInfo, err := os.Stat(requestedPath)
+	if err == nil && fileInfo.IsDir() {
+		http.Error(w, "Access to this resource is restricted", http.StatusForbidden)
+		return
+	}
+
+	// Prevent directory traversal
+	if strings.Contains(requestedPath, "..") {
+		http.Error(w, "Invalid path", http.StatusBadRequest)
+		return
+	}
+
+	// Serve the file if it exists
+	http.ServeFile(w, r, requestedPath)
+}
+
 func ServerStart() {
 	path := checkingPathForServer()
 	http.Handle("/", http.FileServer(http.Dir(path)))
+	http.HandleFunc("/login", LoginPageHandler)
 	http.HandleFunc("/sign-up", SignUpHandle.UserSignUp)
 	http.HandleFunc("/log-in", LogInHandle.UserLogIn)
-	err := http.ListenAndServe(":3000", nil)
+	// Handler for serving assets while preventing directory traversal
+	http.HandleFunc("/assets/", assetsHandler)
+	err := http.ListenAndServe(":3001", nil)
 	if err != nil {
 		log.Fatal(err)
 	}

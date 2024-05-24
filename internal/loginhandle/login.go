@@ -7,16 +7,25 @@ import (
 	"strings"
 )
 
+func CheckIfInputIsEmpty(input string) bool {
+	return (strings.TrimSpace(input) == "")
+}
+
 func LogInValidateUserName(username []string) bool {
 	expression := regexp.MustCompile(`^[a-zA-Z0-9_@]{1,50}$`)
 	var concat_username string = strings.Join(username, "")
+	if !CheckIfInputIsEmpty(concat_username) {
+		return false
+	}
 	return expression.MatchString(concat_username)
 }
 
 func LogInValidatePassword(password []string) bool {
 	// Join the slice of passwords into a single string
 	concatPassword := strings.Join(password, "")
-
+	if !CheckIfInputIsEmpty(concatPassword) {
+		return false
+	}
 	// Regular expression to match valid passwords
 	expression := regexp.MustCompile(`^[A-Za-z\d!@#$%^&*]{8,}$`)
 
@@ -62,8 +71,8 @@ func UserLogIn(w http.ResponseWriter, r *http.Request) {
 	if LogInValidateUserName(r.Form["u_name"]) && LogInValidatePassword(r.Form["pass_key"]) {
 		fmt.Printf("Username: %s\n Password: %s", r.Form["u_name"], r.Form["pass_key"])
 	} else {
-		fmt.Printf("Username: %s\n Password: %s", r.Form["u_name"], r.Form["pass_key"])
-		http.Redirect(w, r, "/login.html", http.StatusFound)
+		fmt.Printf("Username: %s\n Password: %s\n", r.Form["u_name"], r.Form["pass_key"])
+		http.Redirect(w, r, "/login", http.StatusFound)
 		fmt.Println("Can't Get the data")
 	}
 }
