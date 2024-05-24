@@ -7,6 +7,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	
 
 	LogInHandle "github.com/Sreeram0045/backend/internal/loginhandle"
 	SignUpHandle "github.com/Sreeram0045/backend/internal/signuphandle"
@@ -75,8 +76,10 @@ func ServerStart() {
 	http.HandleFunc("/log-in", LogInHandle.UserLogIn)
 	// Handler for serving assets while preventing directory traversal
 	http.HandleFunc("/assets/", assetsHandler)
+	logger := log.New(os.Stdout, "httpServer: ", log.Lmsgprefix)
+	logger.Println("server listening on http://localhost:3001")
 	err := http.ListenAndServe(":3001", nil)
-	if err != nil {
-		log.Fatal(err)
-	}
+	log.Fatal(err)
+	
+	
 }
