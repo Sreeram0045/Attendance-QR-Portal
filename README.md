@@ -19,3 +19,20 @@ The system provides administrators or moderators with insights into the current 
 - MySQL (Database)
 - Tailwind CSS (Styling)
 - QR Code Generator (For generating QR codes)
+
+
+## Instructions
+ `git clone https://github.com/Sreeram0045/Attendance-QR-Portal.git`
+
+ `cd Attendance-QR-Portal/`
+
+  make a file called db_connection and use this format to add your credentials
+  (without the <, > characters)
+  ```
+  Username=<your mysql username>
+  Password=<your mysql password>
+  DBName=<database name>
+
+  ```
+ `go run cmd/backend/main.go`
+   
